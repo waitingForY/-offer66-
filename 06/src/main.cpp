@@ -58,7 +58,7 @@ struct BTreeNode* constructor(int *preorder,int *inorder,int len)
 	return reconstructor(preorder,preorder+len-1,inorder,inorder+len-1);
 }
 /*
- *下面是三个非递归版本的遍历
+ *下面是三个递归版本的遍历
  */
 void printPreorder(struct BTreeNode* root)
 {
@@ -96,7 +96,7 @@ void printLastOrder(struct BTreeNode* root)
 	  return;
 }
 /*
- *下面是三个递归版本的遍历；
+ *下面是三个非递归版本的遍历；
  */
 //这里我们利用c++stl中的stack来实现非递归的版本；
 //必须包含头文件<stack.h>
@@ -129,7 +129,24 @@ void printInorder_stack(struct BTreeNode* root)
 	stack<struct BTreeNode*> node_stack;
 	if(root)
 	{
-
+		node_stack.push(root);
+		struct BTreeNode* lastleft=root;
+		while(!node_stack.empty())
+		{
+			while(lastleft->left)
+			{
+				node_stack.push(lastleft->left);
+				lastleft=lastleft->left;
+			}
+			struct BTreeNode* tmp=node_stack.top();
+			printf("%d,",tmp->val);
+			node_stack.pop();
+			if(tmp->right)
+			{
+				lastleft=tmp->right;
+				node_stack.push(lastleft);
+			}
+		}
 	}
 	else
 	  return;
@@ -145,7 +162,8 @@ int main(void)
 	printPreorder_stack(root);
 	printf("\n");
 	printf("inorder:");
-	printInorder(root);
+	//printInorder(root);
+	printInorder_stack(root);
 	printf("\n");
 	printf("lastorder:");
 	printLastOrder(root);
