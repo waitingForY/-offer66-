@@ -29,5 +29,11 @@
 <ul>
 <li><a href="08/readme.md">08剑指offer之旋转数组中的最小值</a></li>
 </ul>
+<ul>
+<li><a href="09/readme.md">09剑指offer之斐波那契数列</a></li>
+</ul>
+<ul>
+<li><a href="10/readme.md">10剑指offer之统计二进制中1的个数</a></li>
+</ul>
 </body>
 </html>
