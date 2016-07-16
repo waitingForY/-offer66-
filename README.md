@@ -26,5 +26,8 @@
 <ul>
 <li><a href="07/readme.md">07剑指offer之用两个栈实现队列</a></li>
 </ul>
+<ul>
+<li><a href="08/readme.md">08剑指offer之旋转数组中的最小值</a></li>
+</ul>
 </body>
 </html>
