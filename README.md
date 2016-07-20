@@ -98,5 +98,17 @@
 <ul>
 <li><a href="31/readme.md">31剑指offer之连续子数组的最大和</a></li>
 </ul>
+<ul>
+<li><a href="32/readme.md">32剑指offer之从1到n整数中1出现的次数</a></li>
+</ul>
+<ul>
+<li><a href="33/readme.md">33剑指offer之把数组排成最小的数</a></li>
+</ul>
+<ul>
+<li><a href="34/readme.md">34剑指offer之丑数</a></li>
+</ul>
+<ul>
+<li><a href="35/readme.md">35剑指offer之第一次出现一次的字符</a></li>
+</ul>
 </body>
 </html>
