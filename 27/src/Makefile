@@ -1,5 +1,5 @@
 .PHONY:clean all
-CC=g++
+CC=gcc
 CFLAGS=-Wall -g
 BIN=main
 

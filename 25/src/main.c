@@ -12,20 +12,42 @@ struct BTreeNode
 	struct BTreeNode* right;
 };
 
-void findPaht(struct BTreeNode* root,int expected_sum,vector<int>&path,int &current_sum)
-{
+void findPath(struct BTreeNode* root,int expected,vector<int> &path,int currentsum);
 
-}
-
-void findPath(struct BTreeNode* root,int expected_sum)
+void findPath(struct BTreeNode* root,int expected)
 {
 	if(root==NULL)
 	  return;
-	int current_sum=0;
-	vector<usingt> path;
-	findPath(root,expected_sum,path,current_sum);
-
+	vector<int> path;
+	int currentsum=0;
+	findPath(root,expected,path,currentsum);
 }
+
+
+void findPath(struct BTreeNode* root,int expected,vector<int> &path,int currentsum)
+{
+	currentsum+=root->val;
+	path.push_back(root->val);
+	int isleaf=(root->left==NULL)&&(root->right==NULL);
+	if(currentsum==expected&&isleaf)
+	{
+		printf("find a path:\n");
+		vector<int>::iterator it=path.begin();
+		while(it!=path.end())
+		{
+			printf("%d,",*it);
+			++it;
+		}
+		printf("\n");
+	}
+	if(root->left)
+	  findPath(root->left,expected,path,currentsum);
+	if(root->right)
+	  findPath(root->right,expected,path,currentsum);
+	currentsum-=root->val;
+	path.pop_back();
+}
+
 
 
 int main(void)
@@ -44,11 +66,13 @@ int main(void)
 	node5->val=4;
 	struct BTreeNode* node6=(struct BTreeNode*)malloc(sizeof(struct BTreeNode));
 	node6->val=7;
+	struct BTreeNode* node7=(struct BTreeNode*)malloc(sizeof(struct BTreeNode));
+	node7->val=10;
 	root1->left=node1;
 	root1->right=node2;
 	node1->left=node3;
 	node1->right=node4;
-	node2->left=NULL;
+	node2->left=node7;
 	node2->right=NULL;
 	node3->left=NULL;
 	node3->right=NULL;
@@ -58,11 +82,9 @@ int main(void)
 	node5->right=NULL;
 	node6->left=NULL;
 	node6->right=NULL;
-	printf("before change:");
-	preorder(root1);
-	printf("\nafter change:");
-	mirroTree(root1);
-	preorder(root1);
+	node7->left=NULL;
+	node7->right=NULL;
+	findPath(root1,25);
 	printf("\n");
 	return 0;
 }
