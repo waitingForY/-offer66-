@@ -95,5 +95,8 @@
 <ul>
 <li><a href="30/readme.md">30剑指offer之最小的k个数</a></li>
 </ul>
+<ul>
+<li><a href="31/readme.md">31剑指offer之连续子数组的最大和</a></li>
+</ul>
 </body>
 </html>
