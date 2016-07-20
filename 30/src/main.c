@@ -1,9 +1,9 @@
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <algorithm>
+
 using namespace std;
-
-
 int partition(int *arr,int start,int end)
 {
 	int set=start-1;
